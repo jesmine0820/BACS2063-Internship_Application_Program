@@ -18,44 +18,35 @@ public class MatchingEngine{
         return score;
     }
     
-    // Heat Sort for Top K ranking (Arrange in descending order)
-    public static <T extends Comparable<T>> ListInterface<T> heapSort(ListInterface<T> list, Object obj){
+    public static <T extends Comparable<T>> ListInterface<T> heapSort(ListInterface<T> list, Object obj) {
         int size = list.size();
 
-        // Builds a max-heap from the list
-        for(int i = size / 2 - 1; i >= 0; i--){
+        for (int i = size / 2 - 1; i >= 0; i--) {
             heapify(list, size, i, obj);
         }
-        
-        // Extract the max element one by oone by places it at the end of the list
-        for(int i = size - 1; i > 0; i--){
+
+        for (int i = size - 1; i > 0; i--) {
             list.swap(0, i);
             heapify(list, i, 0, obj);
         }
-        
+
         return list;
-        
     }
-    
-    // Helper function for Heap Sort
-    // 1. Compare node i with its left and right children.
-    // 2. Find the largest among them.
-    // 3. If the largest is not i, swap and recursively heapify the affected subtree.
-    private static <T extends Comparable<T>> void heapify(ListInterface<T> list, int size, int i, Object obj){
-        int largest = i;
+
+    private static <T extends Comparable<T>> void heapify(ListInterface<T> list, int size, int i, Object obj) {
+        int smallest = i;
         int left = 2 * i + 1;
         int right = 2 * i + 2;
-        
-        if(left < size && compareList(list.get(left), list.get(largest), obj) > 0)
-        {
-            largest = left;
+
+        if (left < size && compareList(list.get(left), list.get(smallest), obj) < 0) {
+            smallest = left;
         }
-        if(right < size && compareList(list.get(right), list.get(largest), obj) > 0){
-            largest = right;
+        if (right < size && compareList(list.get(right), list.get(smallest), obj) < 0) {
+            smallest = right;
         }
-        if(largest != i){
-            list.swap(i, largest);
-            heapify(list, size, largest, obj);
+        if (smallest != i) {
+            list.swap(i, smallest);
+            heapify(list, size, smallest, obj);
         }
     }
     

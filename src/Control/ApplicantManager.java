@@ -680,6 +680,7 @@ public class ApplicantManager {
         } else {
             System.out.println("No details displayed.");
         }
+        Tools.systemPause();
     }
 
     //for String

@@ -17,7 +17,6 @@ public class BrowseManager {
     
     // Declare local variable
     private static final ListInterface<String> searchHistory = new DoublyLinkedList<>();
-    private static String title = "";
     private static Boolean cancel;
     
     // This cancel is used to control the exit when choosing entity

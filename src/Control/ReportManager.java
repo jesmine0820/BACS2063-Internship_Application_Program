@@ -187,6 +187,7 @@ public class ReportManager {
         System.out.println("********************************************************************************");
         System.out.println("                                 END OF THE REPORT");
         System.out.println("********************************************************************************");
+        Tools.systemPause();
     }
 
     public static void JobApplied() {
@@ -272,6 +273,7 @@ public class ReportManager {
         System.out.println("********************************************************************************");
         System.out.println("                                 END OF THE REPORT");
         System.out.println("********************************************************************************");
+        Tools.systemPause();
     }
     
     // ==================================Applicant Module Report===========================================
